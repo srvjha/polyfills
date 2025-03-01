@@ -9,6 +9,7 @@ if(!Array.prototype.myFlat){
         let newArray = [];
         for(let i=0;i<currentArray.length;i++){
             if(Array.isArray(currentArray[i]) && depth>0){
+                console.log("check: ",...currentArray[i])
                 newArray.push(...currentArray[i].myFlat(depth - 1))
             }
             else newArray.push(currentArray[i])
@@ -17,7 +18,8 @@ if(!Array.prototype.myFlat){
     }
 }
 
-const arr1 = [0, 1, 2, [3, 4]];
+const arr1 = [0, 1, 2, [3, 4],[5,[6]]];
+
 
 console.log(arr1.myFlat(Infinity));
 // expected output: Array [0, 1, 2, 3, 4]
